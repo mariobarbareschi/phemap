@@ -1,0 +1,14 @@
+language:
+        - cpp
+compiler:
+        - clang
+        - g++
+before_install:
+        - mkdir build
+        - cd build
+        - cmake ..
+        - make
+script:
+        - ls | grep -q deviceMain
+        - ls | grep -q verifierMain 
+
