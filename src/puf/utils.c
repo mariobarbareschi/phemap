@@ -26,22 +26,25 @@
 #include "utils.h"
 
 unsigned char* xorVector(unsigned char* o, const unsigned char* x, const unsigned char* y, int length){
-    for(int i = 0; i < length; i++)
+    int i;
+    for(i = 0; i < length; i++)
         o[i] = x[i]^y[i];
       return o;
 }
 
 void getRandomNonce(unsigned char* nonce, int length){
-  struct timeval time;
- gettimeofday(&time,NULL);
- srand((time.tv_sec * 1000) + (time.tv_usec / 1000));
- for(int i = 0; i < length; i++)
-      nonce[i] = rand();
+ 	struct timeval time;
+ 	gettimeofday(&time,NULL);
+ 	srand((time.tv_sec * 1000) + (time.tv_usec / 1000));
+ 	int i;
+ 	for(i = 0; i < length; i++)
+      		nonce[i] = rand();
 }
 
 void printHexBuffer(const unsigned char* r, int length){
   printf("0x");
-  for(int i=0; i<length; i++)
+  int i;
+  for(i=0; i<length; i++)
     printf("%02X", r[i]);
   printf("\n");
 }
