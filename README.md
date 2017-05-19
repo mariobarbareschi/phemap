@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/mariobarbareschi/phemap.svg?branch=master)](https://travis-ci.org/mariobarbareschi/phemap)
 # PHEMAP
 This is a demonstrator of the Physical Hardware-Enabled Mutual Authentication Protocol (PHEMAP)
 
