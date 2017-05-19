@@ -40,6 +40,7 @@ phemap::DummyPuf::DummyPuf(){
 }
 
 phemap::DummyPuf::DummyPuf(puf_t* seed){
+    this->seed = (puf_t*) malloc(PUF_BYTE_LENGTH*sizeof(puf_t));
     this->setSeed(seed);
 }
 
