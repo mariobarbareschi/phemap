@@ -20,6 +20,30 @@ add_executable(verifierMain ${CMAKE_SOURCE_DIR}/src/verifier.cpp)
 
 add_executable(chainMaker ${CMAKE_SOURCE_DIR}/src/chainMaker.cpp)
 
+add_custom_target(runDevice
+    COMMAND deviceMain
+    DEPENDS deviceMain
+    WORKING_DIRECTORY ${CMAKE_PROJECT_DIR}
+)
+
+add_custom_target(runVerifier
+    COMMAND verifierMain
+    DEPENDS verifierMain
+    WORKING_DIRECTORY ${CMAKE_PROJECT_DIR}
+)
+
+add_custom_target(runChainMaker
+    COMMAND chainMaker
+    DEPENDS chainMaker
+    WORKING_DIRECTORY ${CMAKE_PROJECT_DIR}
+)
+
+add_custom_target(run
+    COMMAND deviceMain &! verifierMain
+    DEPENDS verifierMain deviceMain
+    WORKING_DIRECTORY ${CMAKE_PROJECT_DIR}
+)
+
 target_link_libraries(deviceMain PRIVATE device dummyPuf puf pufChain pufChainFromFile verifier deviceManager deviceProxy deviceServer verifierServer utils)
 target_link_libraries(verifierMain PRIVATE device dummyPuf puf pufChain pufChainFromFile verifier deviceManager deviceProxy deviceServer verifierServer utils)
 
