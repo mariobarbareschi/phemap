@@ -8,9 +8,7 @@ addons:
     - llvm-toolchain-precise-3.6
     packages:
     # install toolchains
-    - gcc-5
-    - g++-5
-    - clang-3.6
+    - g++6
 language:
         - cpp
 compiler:
