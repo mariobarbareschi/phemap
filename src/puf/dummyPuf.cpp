@@ -52,7 +52,7 @@ void phemap::DummyPuf::generateResponse(const puf_t* challenge, puf_t* response)
     puf_t* trueChallenge = (puf_t*) malloc(PUF_BYTE_LENGTH*sizeof(puf_t));
     xorVector(trueChallenge, seed, challenge, PUF_BYTE_LENGTH);
 
-    memcpy(response, MD5::MD5(trueChallenge, PUF_BYTE_LENGTH).getDigest(), PUF_BYTE_LENGTH);
+    memcpy(response, MD5(trueChallenge, PUF_BYTE_LENGTH).getDigest(), PUF_BYTE_LENGTH);
 
     free(trueChallenge);
 }
